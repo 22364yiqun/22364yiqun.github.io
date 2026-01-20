@@ -1,9 +1,172 @@
-<html>
-  <head>
-    <title>我的个人主页</title>
-  </head>
-  <body>
-    <h1>你好，欢迎来到我的GitHub主页！</h1>
-    <p>这是我第一个静态网站~</p>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王逸群 (Yiqun Wang) - 个人主页</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* 华科深蓝 */
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        body {
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+        }
+        header {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 { margin-bottom: 10px; color: var(--primary-color); }
+        .contact-info { font-size: 0.9em; color: #666; }
+        .contact-info a { color: var(--primary-color); text-decoration: none; margin: 0 10px; }
+        
+        section {
+            background: white;
+            margin-top: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            color: var(--primary-color);
+            font-size: 1.5em;
+        }
+        .edu-item, .exp-item, .award-item {
+            margin-bottom: 15px;
+        }
+        .item-title { font-weight: bold; display: flex; justify-content: space-between; }
+        .tag {
+            background: #eef4fa;
+            color: #0056b3;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: normal;
+        }
+        .description { font-size: 0.95em; color: #555; margin-top: 5px; }
+        ul { padding-left: 20px; }
+        footer { text-align: center; margin-top: 40px; color: #888; font-size: 0.8em; }
+        
+        /* 移动端优化 */
+        @media (max-width: 600px) {
+            .item-title { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>王逸群 (Yiqun Wang)</h1>
+    <p><strong>华中科技大学 | 机械科学与工程学院</strong></p>
+    <p>机械本硕博试验班 2301班</p>
+    <div class="contact-info">
+        <span>📍 湖北省武汉市华中科技大学</span> | 
+        <span>📞 18834035164</span> | 
+        <span>📧 <a href="mailto:2236403741@qq.com">2236403741@qq.com</a></span>
+    </div>
+</header>
+
+<section id="about">
+    <h2>个人简介</h2>
+    <p>
+        我是华中科技大学机械本硕博试验班的学生，目前绩点 <b>90.04 (排名 3/120)</b>。我致力于机械工程与人工智能的深度融合，
+        研究兴趣包括<b>智能诊断、边缘计算、具身智能与机器人路径规划</b>。我始终坚持“知行合一”，在科研实践中探索轻量化模型与异构算力优化方案。
+    </p>
+</section>
+
+<section id="education">
+    <h2>教育背景</h2>
+    <div class="edu-item">
+        <div class="item-title">
+            <span>华中科技大学 (HUST) - 机械本硕博试验班</span>
+            <span>2023.09 - 至今</span>
+        </div>
+        <ul>
+            <li><b>加权平均成绩：</b> 90.04 / 100</li>
+            <li><b>专业排名：</b> 3 / 120</li>
+            <li><b>核心课程：</b> 机械设计原理、信号分析、人工智能基础、算法与建模等</li>
+        </ul>
+    </div>
+</section>
+
+<section id="research">
+    <h2>科研项目</h2>
+    
+    <div class="exp-item">
+        <div class="item-title">
+            <span>数字孪生驱动的轴承故障诊断 <span class="tag">高艺平老师团队</span></span>
+            <span>2024.09 - 2024.12</span>
+        </div>
+        <p class="description">
+            负责基于 CNN 与 ViT 的双分支网络模型设计，实现多轴融合的轻量化诊断方案。
+            成果发表于《Digital Twin》期刊（2025.07），申请相关专利 1 项（受理中）。
+        </p>
+    </div>
+
+    <div class="exp-item">
+        <div class="item-title">
+            <span>具身智能：端侧可部署双臂操作算法 <span class="tag">挑战杯 AI+ 赛道</span></span>
+            <span>2025.08 - 至今</span>
+        </div>
+        <p class="description">
+            核心成员。针对算力受限环境下的机器人协作，实现了轻量化视觉感知与路径优化，项目获<b>挑战杯全国一等奖</b>。
+        </p>
+    </div>
+
+    <div class="exp-item">
+        <div class="item-title">
+            <span>异构环境下的联邦学习与边缘算力分配 <span class="tag">金海老师团队</span></span>
+            <span>2025.01 - 至今</span>
+        </div>
+        <p class="description">
+            负责异构算力环境下的模型分配实验与对比验证，旨在提升边缘智能设备的协同通信效率。
+        </p>
+    </div>
+
+    <div class="exp-item">
+        <div class="item-title">
+            <span>飞机蒙皮测量与机械臂路径规划 <span class="tag">李文龙教授实验室</span></span>
+            <span>2025 上半年</span>
+        </div>
+        <p class="description">
+            编写工业激光测量控制算法，掌握了复杂曲面测量系统与工业机器人规划流程。
+        </p>
+    </div>
+</section>
+
+<section id="awards">
+    <h2>荣誉奖项</h2>
+    <ul>
+        <li class="award-item"><b>挑战杯“AI+”应用赛道 - 全国一等奖</b> (2025.08)</li>
+        <li class="award-item"><b>第十五届周培源大学生力学竞赛 - 国家级三等奖 / 省一等奖</b> (2025.06)</li>
+        <li class="award-item"><b>美国大学生数学建模竞赛 (MCM/ICM) - S奖</b> (2025.02)</li>
+        <li class="award-item">华中科技大学 学习优秀奖学金、自强奋进奖学金 (2025)</li>
+        <li class="award-item">发明专利：一种基于多轴自注意力与卷积嵌入的轻量化诊断方法 (受理中)</li>
+    </ul>
+</section>
+
+<section id="publications">
+    <h2>发表成果</h2>
+    <ul>
+        <li><b>Yiqun Wang</b>, et al. "A lightweight method based on multi-axis self-attention and convolutional embedding for digital-twin driven fault diagnosis." <i>Digital Twin</i>, 2025.</li>
+    </ul>
+</section>
+
+<footer>
+    <p>&copy; 2025 Yiqun Wang. Last updated: Oct 2025.</p>
+</footer>
+
+</body>
 </html>
