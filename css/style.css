@@ -84,10 +84,16 @@ section {
 #hero {
     padding-top: 100px;
     min-height: auto;
+}
+
+.hero-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
 }
 
 .hero-intro {
@@ -98,12 +104,13 @@ section {
 }
 
 .hero-profile {
-    margin-bottom: 30px;
+    margin-bottom: 0;
+    flex-shrink: 0;
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--green);
@@ -126,7 +133,7 @@ section {
 
 .hero-description {
     max-width: 540px;
-    margin: 15px auto 0;
+    margin-top: 15px;
     color: var(--slate);
     font-size: 18px;
     line-height: 1.8;
@@ -138,7 +145,6 @@ section {
     margin-top: 20px;
     font-family: var(--font-mono);
     font-size: 14px;
-    justify-content: center;
 }
 
 .stat-item {
@@ -157,7 +163,6 @@ section {
     gap: 15px;
     flex-wrap: wrap;
     margin-top: 25px;
-    justify-content: center;
 }
 
 .btn-primary, .btn-secondary {
@@ -463,6 +468,16 @@ footer {
 
     .section-title::after {
         width: 100px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .hero-text {
+        text-align: center;
     }
 
     .hero-buttons {
