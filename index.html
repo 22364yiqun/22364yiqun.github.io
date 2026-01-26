@@ -1,235 +1,446 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王逸群 (Yiqun Wang) - 个人主页</title>
-    <style>
-        :root {
-            --primary-color: #003366;
-            --text-color: #333;
-            --bg-color: #f4f4f4;
-        }
-        body {
-            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: var(--bg-color);
-        }
-        header {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        h1 { margin-bottom: 10px; color: var(--primary-color); }
-        .contact-info { font-size: 0.9em; color: #666; }
-        .contact-info a { color: var(--primary-color); text-decoration: none; margin: 0 10px; }
-        
-        section {
-            background: white;
-            margin-top: 20px;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        h2 {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 5px;
-            color: var(--primary-color);
-            font-size: 1.5em;
-        }
-        .edu-item, .exp-item, .award-item {
-            margin-bottom: 15px;
-        }
-        .item-title { font-weight: bold; display: flex; justify-content: space-between; }
-        .tag {
-            background: #eef4fa;
-            color: #0056b3;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: normal;
-        }
-        .description { font-size: 0.95em; color: #555; margin-top: 5px; }
-        ul { padding-left: 20px; }
-        footer { text-align: center; margin-top: 40px; color: #888; font-size: 0.8em; }
-        
-        /* 移动端优化 */
-        @media (max-width: 600px) {
-            .item-title { flex-direction: column; }
-        }
-    </style>
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>王逸群 (Yiqun Wang) - 个人主页</title>
+      <!-- Font Awesome 图标库 -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <style>
+          :root {
+              --primary-color: #003366;
+              --secondary-color: #0056b3;
+              --text-color: #333;
+              --bg-color: #f4f4f4;
+              --white: #ffffff;
+              --light-blue: #eef4fa;
+          }
 
-  <header>
-      <div style="margin-bottom: 20px;">
-          <img src="images/profile.jpg" alt="王逸群" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-      </div>
-      <h1>王逸群 (Yiqun Wang)</h1>
-      <p><strong>华中科技大学 | 机械科学与工程学院</strong></p>
-      <p>机械本硕博试验班 2301班</p>
-      <div class="contact-info">
-          <span>📍 湖北省武汉市华中科技大学</span> |
-          <span>📞 18834035164</span> |
-          <span>📧 <a href="mailto:2236403741@qq.com">2236403741@qq.com</a></span>
-      </div>
-  </header>
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
 
-<section id="about">
-    <h2>个人简介</h2>
-    <p>
-        我是华中科技大学机械本硕博试验班的学生，绩点 90.04 (3/27)。我立志于探索具身智能与机器人操控的前沿边界，试图在物理世界中实现更高效的感知与决策。我曾深耕智能诊断、边缘计算及路径规划等领域，这些跨学科积累使我具备了从轻量化模型设计到异构算力端侧部署的全栈实践能力。我期待能将过往的底层优化经验，转化为赋予机器人灵巧动作与智能灵魂的基石。
-    </p>
-</section>
+          body {
+              font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+              line-height: 1.6;
+              color: var(--text-color);
+              background-color: var(--bg-color);
+          }
 
-<section id="education">
-    <h2>教育背景</h2>
-    <div class="edu-item">
-        <div class="item-title">
-            <span><strong>华中科技大学</strong> - 启明学院本硕博实验班</span>
-            <span>2023.09 - 至今</span>
-        </div>
-        <ul>
-            <li><b>学业成绩：</b>加权平均分 <strong>90.04/100</strong>，专业排名 <strong>3/27</strong></li>
-            <li><b>核心课程：</b>
-                <div style="margin-top:5px;">
-                    <span class="tag">软件技术基础 (100)</span>
-                    <span class="tag">微积分（A） (100)</span>
-                    <span class="tag">理论力学 (97)</span>
-                    <span class="tag">线性代数 (96)</span>
-                    <span class="tag">科研认知实践 (96)</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-</section>
+          /* 导航栏 */
+          nav {
+              background: var(--white);
+              box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+              position: sticky;
+              top: 0;
+              z-index: 100;
+          }
 
-  <section id="research">
-      <h2>科研项目</h2>
+          nav ul {
+              max-width: 900px;
+              margin: 0 auto;
+              padding: 15px 20px;
+              list-style: none;
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+          }
 
-      <div class="exp-item">
-          <div class="item-title">
-              <span><strong>数字孪生驱动的轴承故障智能诊断研究</strong> <span class="tag">高亮教授课题组</span></span>
-              <span>2024.09 - 2024.12</span>
-          </div>
-          <p class="description">
-              设计了CNN-ViT双分支网络架构，有效融合轴承振动信号的局部与全局特征。相比ResNet-18参数量减少60%的情况下，诊断准确率达99.2%。已发表论文于《Digital Twin》期刊（2025年），申请发明专利1项。
-          </p>
-      </div>
+          nav li {
+              margin: 0 15px;
+          }
 
-      <div class="exp-item">
-          <div class="item-title">
-              <span><strong>面向真实世界的双臂机器人端侧智能操控系统</strong> <span class="tag">挑战杯全国一等奖</span></span>
-              <span>2025.08 - 2025.11</span>
-          </div>
-          <p class="description">
-              基于ROS2搭建多传感器同步数据采集系统，采集RGB-D与14维关节状态；采用三阶段渐进式预训练策略优化扩散策略模型，训练效率提升30%，支撑项目获得挑战杯国家级一等奖。
-          </p>
-      </div>
+          nav a {
+              color: var(--text-color);
+              text-decoration: none;
+              font-weight: 500;
+              transition: color 0.3s;
+          }
 
-      <div class="exp-item">
-          <div class="item-title">
-              <span><strong>异构环境下的联邦学习与边缘算力分配</strong> <span class="tag">金海老师团队</span></span>
-              <span>2025.01 - 至今</span>
-          </div>
-          <p class="description">
-              参与CoShare-FSL联邦分割学习框架的核心模块研发。设计了辅助头机制，实现前后段模型的解耦训练，支持异步并行优化；引入数据集凝练压缩模块的实现，采用梯度匹配与特征对齐策略构造轻量级代理集，在显著减少通信与计算开销的同时保证收敛精度。
-          </p>
-      </div>
+          nav a:hover {
+              color: var(--primary-color);
+          }
 
-      <div class="exp-item">
-          <div class="item-title">
-              <span><strong>大型航空构件机器人智能测量与点云处理系统</strong> <span class="tag">李文龙教授实验室</span></span>
-              <span>2025年上半年</span>
-          </div>
-          <p class="description">
-               设计曲面参数化建模与路径优化算法，使机械臂末端相机可以完整扫描蒙皮；基于C++/Qt开发跨平台点云处理系统，集成ROS与激光跟踪仪通信模块，完成系统集成与仿真验证。
-          </p>
-      </div>
-  </section>
+          /* 主容器 */
+          .container {
+              max-width: 900px;
+              margin: 0 auto;
+              padding: 20px;
+          }
 
- <section id="skills">
-      <h2><i class="fas fa-code"></i> 专业技能</h2>
-      <div class="skills-grid">
-          <div class="skill-category">
-              <h3><i class="fas fa-laptop-code"></i> 编程语言</h3>
-              <div class="skill-tags">
-                  <span class="skill-tag proficient">Python</span>
-                  <span class="skill-tag proficient">C/C++</span>
-                  <span class="skill-tag">MATLAB</span>
-              </div>
-          </div>
+          /* 头部 */
+          header {
+              background: var(--white);
+              padding: 40px;
+              border-radius: 8px;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              text-align: center;
+              margin-bottom: 20px;
+          }
 
-          <div class="skill-category">
-              <h3><i class="fas fa-brain"></i> AI与深度学习</h3>
-              <div class="skill-tags">
-                  <span class="skill-tag proficient">PyTorch</span>
-                  <span class="skill-tag proficient">TensorFlow</span>
-                  <span class="skill-tag">CNN</span>
-                  <span class="skill-tag">Transformer</span>
-                  <span class="skill-tag">扩散模型</span>
-              </div>
-          </div>
+          header img {
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              object-fit: cover;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+              margin-bottom: 20px;
+          }
 
-          <div class="skill-category">
-              <h3><i class="fas fa-robot"></i> 机器人开发</h3>
-              <div class="skill-tags">
-                  <span class="skill-tag proficient">ROS/ROS2</span>
-                  <span class="skill-tag">ABB RobotStudio</span>
-                  <span class="skill-tag">PCL</span>
-                  <span class="skill-tag">Open3D</span>
-              </div>
-          </div>
+          h1 {
+              margin-bottom: 10px;
+              color: var(--primary-color);
+              font-size: 2em;
+          }
 
-          <div class="skill-category">
-              <h3><i class="fas fa-tools"></i> 开发工具</h3>
-              <div class="skill-tags">
-                  <span class="skill-tag proficient">Git</span>
-                  <span class="skill-tag proficient">Linux</span>
-                  <span class="skill-tag">Docker</span>
-                  <span class="skill-tag">Qt</span>
-                  <span class="skill-tag">LaTeX</span>
-              </div>
-          </div>
+          .contact-info {
+              font-size: 0.9em;
+              color: #666;
+              margin-top: 15px;
+          }
 
-          <div class="skill-category">
-              <h3><i class="fas fa-drafting-compass"></i> 工程软件</h3>
-              <div class="skill-tags">
-                  <span class="skill-tag proficient">SolidWorks</span>
-                  <span class="skill-tag">ANSYS</span>
-              </div>
-          </div>
-      </div>
-  </section>
+          .contact-info a {
+              color: var(--primary-color);
+              text-decoration: none;
+              margin: 0 10px;
+          }
 
-  <section id="awards">
-      <h2>荣誉奖项</h2>
+          .contact-info a:hover {
+              text-decoration: underline;
+          }
+
+          /* 区块 */
+          section {
+              background: var(--white);
+              margin-bottom: 20px;
+              padding: 30px;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+          }
+
+          h2 {
+              border-bottom: 2px solid var(--primary-color);
+              padding-bottom: 8px;
+              margin-bottom: 20px;
+              color: var(--primary-color);
+              font-size: 1.5em;
+          }
+
+          h2 i {
+              margin-right: 8px;
+          }
+
+          /* 项目条目 */
+          .edu-item, .exp-item, .award-item {
+              margin-bottom: 20px;
+          }
+
+          .item-title {
+              font-weight: bold;
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+              flex-wrap: wrap;
+              gap: 10px;
+          }
+
+          .tag {
+              background: var(--light-blue);
+              color: var(--secondary-color);
+              padding: 3px 10px;
+              border-radius: 4px;
+              font-size: 0.85em;
+              font-weight: normal;
+          }
+
+          .description {
+              font-size: 0.95em;
+              color: #555;
+              line-height: 1.7;
+          }
+
+          ul {
+              padding-left: 20px;
+              margin-top: 10px;
+          }
+
+          li {
+              margin-bottom: 8px;
+          }
+
+          /* 技能部分 */
+          .skills-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 20px;
+              margin-top: 20px;
+          }
+
+          .skill-category {
+              background: var(--light-blue);
+              padding: 20px;
+              border-radius: 8px;
+              transition: transform 0.3s, box-shadow 0.3s;
+          }
+
+          .skill-category:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          }
+
+          .skill-category h3 {
+              color: var(--primary-color);
+              margin-bottom: 12px;
+              font-size: 1.1em;
+          }
+
+          .skill-category h3 i {
+              margin-right: 8px;
+          }
+
+          .skill-tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+          }
+
+          .skill-tag {
+              background: var(--white);
+              color: var(--text-color);
+              padding: 5px 12px;
+              border-radius: 15px;
+              font-size: 0.9em;
+              border: 1px solid #ddd;
+              transition: all 0.3s;
+          }
+
+          .skill-tag.proficient {
+              background: var(--primary-color);
+              color: var(--white);
+              border-color: var(--primary-color);
+          }
+
+          .skill-tag:hover {
+              transform: scale(1.05);
+          }
+
+          /* 页脚 */
+          footer {
+              text-align: center;
+              padding: 30px 20px;
+              color: #888;
+              font-size: 0.9em;
+          }
+
+          /* 移动端优化 */
+          @media (max-width: 600px) {
+              nav ul {
+                  flex-direction: column;
+                  align-items: center;
+              }
+
+              nav li {
+                  margin: 5px 0;
+              }
+
+              .item-title {
+                  flex-direction: column;
+              }
+
+              h1 {
+                  font-size: 1.5em;
+              }
+
+              .skills-grid {
+                  grid-template-columns: 1fr;
+              }
+          }
+
+          /* 平滑滚动 */
+          html {
+              scroll-behavior: smooth;
+          }
+      </style>
+  </head>
+  <body>
+
+  <!-- 导航栏 -->
+  <nav>
       <ul>
-          <li class="award-item"><b>华中科技大学 特优生</b> (2025)</li>
-          <li class="award-item"><b>挑战杯"AI+"应用赛道 - 全国一等奖</b> (2025.08)</li>
-          <li class="award-item"><b>第十五届周培源大学生力学竞赛 - 国家级三等奖 / 省一等奖</b> (2025.06)</li>
-          <li class="award-item"><b>美国大学生数学建模竞赛 (MCM/ICM) - S奖</b> (2025.02)</li>
-          <li class="award-item">华中科技大学 学习优秀奖学金、自强奋进奖学金 (2025)</li>
-          <li class="award-item">发明专利：一种基于多轴自注意力与卷积嵌入的轻量化诊断方法 (受理中)</li>
+          <li><a href="#about">个人简介</a></li>
+          <li><a href="#education">教育背景</a></li>
+          <li><a href="#research">科研项目</a></li>
+          <li><a href="#skills">专业技能</a></li>
+          <li><a href="#awards">荣誉奖项</a></li>
+          <li><a href="#publications">发表成果</a></li>
       </ul>
-  </section>
+  </nav>
 
-<section id="publications">
-    <h2>发表成果</h2>
-    <ul>
-        <li><b>Yiqun Wang</b>, et al. "A lightweight method based on multi-axis self-attention and convolutional embedding for digital-twin driven fault diagnosis." <i>Digital Twin</i>, 2025.</li>
-    </ul>
-</section>
+  <div class="container">
+      <header>
+          <img src="images/profile.jpg" alt="王逸群">
+          <h1>王逸群 (Yiqun Wang)</h1>
+          <p><strong>华中科技大学 | 机械科学与工程学院</strong></p>
+          <p>机械本硕博试验班 2301班</p>
+          <div class="contact-info">
+              <span>📍 湖北省武汉市华中科技大学</span> |
+              <span>📞 18834035164</span> |
+              <span>📧 <a href="mailto:2236403741@qq.com">2236403741@qq.com</a></span>
+          </div>
+      </header>
 
-<footer>
-    <p>&copy; 2025 Yiqun Wang. Last updated: Oct 2025.</p>
-</footer>
+      <section id="about">
+          <h2><i class="fas fa-user"></i> 个人简介</h2>
+          <p>
+              我是华中科技大学机械本硕博试验班的学生，绩点 90.04 (3/27)。我立志于探索具身智能与机器人操控的前沿边界，试图在物理世界中实现更高效的感知与决策。我曾深耕智能诊断、边缘计算及路径规划等领域，这些跨学科积累使我具备了从轻量化模型设计到异构算力端侧部署的全栈实践能力。我期待能将过往的底层优化经验，转化为赋予机器人灵巧动作与智能灵魂的基石。
+          </p>
+      </section>
 
-</body>
-</html>
+      <section id="education">
+          <h2><i class="fas fa-graduation-cap"></i> 教育背景</h2>
+          <div class="edu-item">
+              <div class="item-title">
+                  <span><strong>华中科技大学</strong> - 启明学院本硕博实验班</span>
+                  <span>2023.09 - 至今</span>
+              </div>
+              <ul>
+                  <li><b>学业成绩：</b>加权平均分 <strong>90.04/100</strong>，专业排名 <strong>3/27</strong></li>
+                  <li><b>核心课程：</b>
+                      <div style="margin-top:8px;">
+                          <span class="tag">软件技术基础 (100)</span>
+                          <span class="tag">微积分（A） (100)</span>
+                          <span class="tag">理论力学 (97)</span>
+                          <span class="tag">线性代数 (96)</span>
+                          <span class="tag">科研认知实践 (96)</span>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </section>
+
+      <section id="research">
+          <h2><i class="fas fa-flask"></i> 科研项目</h2>
+
+          <div class="exp-item">
+              <div class="item-title">
+                  <span><strong>数字孪生驱动的轴承故障智能诊断研究</strong> <span class="tag">高亮教授课题组</span></span>
+                  <span>2024.09 - 2024.12</span>
+              </div>
+              <p class="description">
+                  设计了CNN-ViT双分支网络架构，有效融合轴承振动信号的局部与全局特征。相比ResNet-18参数量减少60%的情况下,诊断准确率达99.2%。已发表论文于《Digital Twin》期刊（2025年），申请发明专利1项。
+              </p>
+          </div>
+
+          <div class="exp-item">
+              <div class="item-title">
+                  <span><strong>面向真实世界的双臂机器人端侧智能操控系统</strong> <span class="tag">挑战杯全国一等奖</span></span>
+                  <span>2024.08 - 2024.11</span>
+              </div>
+              <p class="description">
+                  基于ROS2搭建多传感器同步数据采集系统，采集RGB-D与14维关节状态；采用三阶段渐进式预训练策略优化扩散策略模型，训练效率提升30%，支撑项目获得挑战杯国家级一等奖。
+              </p>
+          </div>
+
+          <div class="exp-item">
+              <div class="item-title">
+                  <span><strong>异构环境下的联邦学习与边缘算力分配</strong> <span class="tag">金海老师团队</span></span>
+                  <span>2025.01 - 至今</span>
+              </div>
+              <p class="description">
+                  参与CoShare-FSL联邦分割学习框架的核心模块研发。设计了辅助头机制，实现前后段模型的解耦训练，支持异步并行优化；引入数据集凝练压缩模块的实现，采用梯度匹配与特征对齐策略构造轻量级代理集，在显著减少通信与计算开销的同时保证收敛精度。
+              </p>
+          </div>
+
+          <div class="exp-item">
+              <div class="item-title">
+                  <span><strong>大型航空构件机器人智能测量与点云处理系统</strong> <span class="tag">李文龙教授实验室</span></span>
+                  <span>2024年上半年</span>
+              </div>
+              <p class="description">
+                  设计曲面参数化建模与路径优化算法，使机械臂末端相机可以完整扫描蒙皮；基于C++/Qt开发跨平台点云处理系统，集成ROS与激光跟踪仪通信模块，完成系统集成与仿真验证。
+              </p>
+          </div>
+      </section>
+
+      <section id="skills">
+          <h2><i class="fas fa-code"></i> 专业技能</h2>
+          <div class="skills-grid">
+              <div class="skill-category">
+                  <h3><i class="fas fa-laptop-code"></i> 编程语言</h3>
+                  <div class="skill-tags">
+                      <span class="skill-tag proficient">Python</span>
+                      <span class="skill-tag proficient">C/C++</span>
+                      <span class="skill-tag">MATLAB</span>
+                  </div>
+              </div>
+
+              <div class="skill-category">
+                  <h3><i class="fas fa-brain"></i> AI与深度学习</h3>
+                  <div class="skill-tags">
+                      <span class="skill-tag proficient">PyTorch</span>
+                      <span class="skill-tag proficient">TensorFlow</span>
+                      <span class="skill-tag">CNN</span>
+                      <span class="skill-tag">Transformer</span>
+                      <span class="skill-tag">扩散模型</span>
+                  </div>
+              </div>
+
+              <div class="skill-category">
+                  <h3><i class="fas fa-robot"></i> 机器人开发</h3>
+                  <div class="skill-tags">
+                      <span class="skill-tag proficient">ROS/ROS2</span>
+                      <span class="skill-tag">ABB RobotStudio</span>
+                      <span class="skill-tag">PCL</span>
+                      <span class="skill-tag">Open3D</span>
+                  </div>
+              </div>
+
+              <div class="skill-category">
+                  <h3><i class="fas fa-tools"></i> 开发工具</h3>
+                  <div class="skill-tags">
+                      <span class="skill-tag proficient">Git</span>
+                      <span class="skill-tag proficient">Linux</span>
+                      <span class="skill-tag">Docker</span>
+                      <span class="skill-tag">Qt</span>
+                      <span class="skill-tag">LaTeX</span>
+                  </div>
+              </div>
+
+              <div class="skill-category">
+                  <h3><i class="fas fa-drafting-compass"></i> 工程软件</h3>
+                  <div class="skill-tags">
+                      <span class="skill-tag proficient">SolidWorks</span>
+                      <span class="skill-tag">ANSYS</span>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="awards">
+          <h2><i class="fas fa-trophy"></i> 荣誉奖项</h2>
+          <ul>
+              <li class="award-item"><b>华中科技大学 特优生</b> (2025)</li>
+              <li class="award-item"><b>挑战杯"AI+"应用赛道 - 全国一等奖</b> (2024.08)</li>
+              <li class="award-item"><b>第十五届周培源大学生力学竞赛 - 国家级三等奖 / 省一等奖</b> (2024.06)</li>
+              <li class="award-item"><b>美国大学生数学建模竞赛 (MCM/ICM) - S奖</b> (2025.02)</li>
+              <li class="award-item">华中科技大学 学习优秀奖学金、自强奋进奖学金 (2025)</li>
+              <li class="award-item">发明专利：一种基于多轴自注意力与卷积嵌入的轻量化诊断方法 (受理中)</li>
+          </ul>
+      </section>
+
+      <section id="publications">
+          <h2><i class="fas fa-file-alt"></i> 发表成果</h2>
+          <ul>
+              <li><b>Yiqun Wang</b>, et al. "A lightweight method based on multi-axis self-attention and convolutional embedding for digital-twin driven fault diagnosis." <i>Digital Twin</i>, 2025.</li>
+          </ul>
+      </section>
+  </div>
+
+  <footer>
+      <p>&copy; 2026 Yiqun Wang | 最后更新：2026年1月</p>
+  </footer>
+
+  </body>
+  </html>
