@@ -40,20 +40,13 @@
             overflow-x: hidden;
         }
 
-        /* 侧边固定元素 */
+        /* 侧边固定社交链接 */
         .fixed-sidebar {
             position: fixed;
             bottom: 0;
             width: 40px;
             z-index: 10;
-        }
-
-        .fixed-sidebar.left {
             left: 40px;
-        }
-
-        .fixed-sidebar.right {
-            right: 40px;
         }
 
         .social-links {
@@ -77,35 +70,6 @@
         }
 
         .social-links a:hover {
-            color: var(--green);
-            transform: translateY(-3px);
-        }
-
-        .email-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .email-link::after {
-            content: '';
-            width: 1px;
-            height: 90px;
-            background-color: var(--light-slate);
-        }
-
-        .email-link a {
-            writing-mode: vertical-rl;
-            color: var(--light-slate);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            transition: var(--transition);
-        }
-
-        .email-link a:hover {
             color: var(--green);
             transform: translateY(-3px);
         }
@@ -184,6 +148,7 @@
         /* Hero区域 */
         #hero {
             padding-top: 0;
+            min-height: auto;
         }
 
         .hero-intro {
@@ -231,6 +196,52 @@
             color: var(--green);
             font-size: 20px;
             font-weight: bold;
+        }
+
+        /* Hero按钮组 */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            color: var(--green);
+            border-color: var(--green);
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--lightest-slate);
+            border-color: var(--lightest-slate);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-navy);
+            color: var(--green);
+            border-color: var(--green);
+            transform: translateY(-2px);
         }
 
         /* Section标题 */
@@ -440,6 +451,7 @@
             color: var(--slate);
             font-family: var(--font-mono);
             font-size: 13px;
+            border-top: 1px solid var(--lightest-navy);
         }
 
         /* 响应式 */
@@ -464,6 +476,7 @@
 
             nav ul {
                 gap: 15px;
+                font-size: 12px;
             }
 
             section {
@@ -472,6 +485,16 @@
 
             .section-title::after {
                 width: 100px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
             }
         }
 
@@ -484,30 +507,24 @@
                 flex-direction: column;
                 gap: 15px;
             }
+
+            nav ul {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
 <!-- 左侧固定社交链接 -->
-<div class="fixed-sidebar left">
+<div class="fixed-sidebar">
     <div class="social-links">
-        <a href="https://github.com/yourusername" aria-label="GitHub" target="_blank">
+        <a href="https://github.com/22364yiqun" aria-label="GitHub" target="_blank">
             <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn" target="_blank">
-            <i class="fab fa-linkedin"></i>
         </a>
         <a href="https://scholar.google.com" aria-label="Google Scholar" target="_blank">
             <i class="fas fa-graduation-cap"></i>
         </a>
-    </div>
-</div>
-
-<!-- 右侧固定邮箱 -->
-<div class="fixed-sidebar right">
-    <div class="email-link">
-        <a href="mailto:2236403741@qq.com">2236403741@qq.com</a>
     </div>
 </div>
 
@@ -532,8 +549,8 @@
         <h1 class="hero-name">王逸群</h1>
         <h2 class="hero-tagline">Yiqun Wang</h2>
         <p class="hero-description">
-            我是华中科技大学机械本硕博试验班的学生，立志于探索<strong style="color: var(--lightest-slate);">具身智能与机器人操控</strong>的前沿边界。
-            我曾深耕智能诊断、边缘计算及路径规划等领域，这些跨学科积累使我具备了从轻量化模型设计到异构算力端侧部署的全栈实践能力。
+            华中科技大学机械本硕博试验班学生，立志于探索<strong style="color: var(--lightest-slate);">具身智能与机器人操控</strong>的前沿边界。
+            我曾深耕智能诊断、边缘计算及路径规划等领域，具备从轻量化模型设计到异构算力端侧部署的全栈实践能力。
         </p>
         <div class="hero-stats">
             <div class="stat-item">
@@ -548,6 +565,17 @@
                 <div class="number">4+</div>
                 <div>科研项目</div>
             </div>
+        </div>
+        <div class="hero-buttons">
+            <a href="https://github.com/22364yiqun" target="_blank" class="btn-primary">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:2236403741@qq.com" class="btn-primary">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="#awards" class="btn-secondary">
+                <i class="fas fa-arrow-down"></i> 了解更多
+            </a>
         </div>
     </section>
 
