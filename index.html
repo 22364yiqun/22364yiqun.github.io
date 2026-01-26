@@ -5,554 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>王逸群 (Yiqun Wang) - Embodied AI Researcher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --navy: #0a192f;
-            --light-navy: #112240;
-            --lightest-navy: #233554;
-            --navy-shadow: rgba(2,12,27,0.7);
-            --green: #64ffda;
-            --light-green: #a8e6cf;
-            --slate: #8892b0;
-            --light-slate: #a8b2d1;
-            --lightest-slate: #ccd6f6;
-            --white: #e6f1ff;
-            --font-sans: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            --font-mono: 'SF Mono', 'Fira Code', monospace;
-            --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--navy);
-            color: var(--slate);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* 侧边固定社交链接 */
-        .fixed-sidebar {
-            position: fixed;
-            bottom: 0;
-            width: 40px;
-            z-index: 10;
-            right: 40px;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .social-links::after {
-            content: '';
-            width: 1px;
-            height: 90px;
-            background-color: var(--light-slate);
-        }
-
-        .social-links a {
-            color: var(--light-slate);
-            font-size: 20px;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--green);
-            transform: translateY(-3px);
-        }
-
-        /* 导航栏 */
-        nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 60px;
-            height: 100vh;
-            background-color: rgba(10, 25, 47, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 10px 0 30px -10px var(--navy-shadow);
-            z-index: 100;
-            transition: var(--transition);
-        }
-
-        nav.scrolled {
-            box-shadow: 10px 0 30px -10px var(--navy-shadow);
-        }
-
-        nav .nav-container {
-            width: 100%;
-            height: 100%;
-            padding: 40px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .logo {
-            color: var(--green);
-            font-family: var(--font-mono);
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 50px;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-        }
-
-        nav ul {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--lightest-slate);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            transition: var(--transition);
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-        }
-
-        nav a:hover {
-            color: var(--green);
-        }
-
-        nav a span {
-            color: var(--green);
-            margin-right: 5px;
-        }
-
-        /* 主容器 */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 150px 0 220px;
-            margin-left: 60px;
-        }
-
-        section {
-            padding: 100px 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Hero区域 */
-        #hero {
-            padding-top: 0;
-            min-height: auto;
-        }
-
-        .hero-intro {
-            color: var(--green);
-            font-family: var(--font-mono);
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .hero-name {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 600;
-            color: var(--lightest-slate);
-            line-height: 1.1;
-            margin-bottom: 10px;
-        }
-
-        .hero-tagline {
-            font-size: clamp(30px, 6vw, 60px);
-            color: var(--slate);
-            margin-bottom: 20px;
-        }
-
-        .hero-description {
-            max-width: 540px;
-            margin-top: 25px;
-            color: var(--slate);
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            font-family: var(--font-mono);
-            font-size: 14px;
-        }
-
-        .stat-item {
-            color: var(--light-slate);
-        }
-
-        .stat-item .number {
-            color: var(--green);
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        /* Hero按钮组 */
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .btn-primary, .btn-secondary {
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 14px;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: transparent;
-            color: var(--green);
-            border-color: var(--green);
-        }
-
-        .btn-primary:hover {
-            background-color: rgba(100, 255, 218, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--lightest-slate);
-            border-color: var(--lightest-slate);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--light-navy);
-            color: var(--green);
-            border-color: var(--green);
-            transform: translateY(-2px);
-        }
-
-        /* Section标题 */
-        .section-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            font-size: clamp(26px, 5vw, 32px);
-            color: var(--lightest-slate);
-            font-weight: 600;
-        }
-
-        .section-title .number {
-            color: var(--green);
-            font-family: var(--font-mono);
-            font-size: 20px;
-            margin-right: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 300px;
-            height: 1px;
-            margin-left: 20px;
-            background-color: var(--lightest-navy);
-        }
-
-        /* 教育背景 */
-        .education-item {
-            background-color: var(--light-navy);
-            border-radius: 4px;
-            padding: 25px;
-            transition: var(--transition);
-        }
-
-        .education-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px var(--navy-shadow);
-        }
-
-        .edu-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .edu-school {
-            font-size: 20px;
-            color: var(--lightest-slate);
-            font-weight: 600;
-        }
-
-        .edu-time {
-            color: var(--green);
-            font-family: var(--font-mono);
-            font-size: 13px;
-        }
-
-        .edu-courses {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .course-tag {
-            background-color: var(--lightest-navy);
-            color: var(--green);
-            padding: 5px 12px;
-            border-radius: 3px;
-            font-family: var(--font-mono);
-            font-size: 12px;
-        }
-
-        /* 科研项目 */
-        .project-item {
-            background-color: var(--light-navy);
-            border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: var(--transition);
-            border-left: 3px solid transparent;
-        }
-
-        .project-item:hover {
-            transform: translateX(5px);
-            border-left-color: var(--green);
-            box-shadow: 0 10px 30px -15px var(--navy-shadow);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .project-title {
-            font-size: 22px;
-            color: var(--lightest-slate);
-            font-weight: 600;
-        }
-
-        .project-tag {
-            background-color: rgba(100, 255, 218, 0.1);
-            color: var(--green);
-            padding: 5px 12px;
-            border-radius: 3px;
-            font-family: var(--font-mono);
-            font-size: 12px;
-        }
-
-        .project-time {
-            color: var(--slate);
-            font-family: var(--font-mono);
-            font-size: 13px;
-        }
-
-        .project-description {
-            color: var(--slate);
-            line-height: 1.8;
-        }
-
-        /* 技能 */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            background-color: var(--light-navy);
-            padding: 25px;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px var(--navy-shadow);
-        }
-
-        .skill-category h3 {
-            color: var(--lightest-slate);
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background-color: var(--lightest-navy);
-            color: var(--light-slate);
-            padding: 5px 12px;
-            border-radius: 3px;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            transition: var(--transition);
-        }
-
-        .skill-tag.proficient {
-            background-color: rgba(100, 255, 218, 0.1);
-            color: var(--green);
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-2px);
-        }
-
-        /* 荣誉 */
-        .awards-list {
-            list-style: none;
-        }
-
-        .award-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 20px;
-            color: var(--slate);
-            line-height: 1.8;
-        }
-
-        .award-item::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--green);
-            font-size: 18px;
-        }
-
-        .award-item b {
-            color: var(--lightest-slate);
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            color: var(--slate);
-            font-family: var(--font-mono);
-            font-size: 13px;
-            border-top: 1px solid var(--lightest-navy);
-        }
-
-        /* 响应式 */
-        @media (max-width: 1080px) {
-            .container {
-                padding: 0 100px 0 220px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 50px 0 120px;
-                margin-left: 0;
-            }
-
-            .fixed-sidebar {
-                display: none;
-            }
-
-            nav {
-                width: 50px;
-            }
-
-            nav .nav-container {
-                padding: 30px 0;
-            }
-
-            .logo {
-                margin-bottom: 40px;
-                font-size: 16px;
-            }
-
-            nav ul {
-                gap: 20px;
-            }
-
-            nav a {
-                font-size: 10px;
-            }
-
-            section {
-                padding: 80px 0;
-            }
-
-            .section-title::after {
-                width: 100px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 25px 0 80px;
-            }
-
-            nav {
-                width: 40px;
-            }
-
-            nav .nav-container {
-                padding: 20px 0;
-            }
-
-            .logo {
-                margin-bottom: 30px;
-                font-size: 14px;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                gap: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- 左侧固定社交链接 -->
+<!-- 右侧固定社交链接 -->
 <div class="fixed-sidebar">
     <div class="social-links">
         <a href="https://github.com/22364yiqun" aria-label="GitHub" target="_blank">
@@ -563,20 +20,6 @@
         </a>
     </div>
 </div>
-
-<!-- 导航栏 -->
-<nav>
-    <div class="nav-container">
-        <div class="logo">YW</div>
-        <ul>
-            <li><a href="#about"><span>01.</span>关于</a></li>
-            <li><a href="#education"><span>02.</span>教育</a></li>
-            <li><a href="#research"><span>03.</span>科研</a></li>
-            <li><a href="#skills"><span>04.</span>技能</a></li>
-            <li><a href="#awards"><span>05.</span>荣誉</a></li>
-        </ul>
-    </div>
-</nav>
 
 <div class="container">
     <!-- Hero区域 -->
@@ -609,8 +52,8 @@
             <a href="mailto:2236403741@qq.com" class="btn-primary">
                 <i class="fas fa-envelope"></i> Email
             </a>
-            <a href="#awards" class="btn-secondary">
-                <i class="fas fa-arrow-down"></i> 了解更多
+            <a href="#contact" class="btn-secondary">
+                <i class="fas fa-paper-plane"></i> Contact Me
             </a>
         </div>
     </section>
@@ -770,23 +213,44 @@
             </li>
         </ul>
     </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title"><span class="number">06.</span> Contact Me</h2>
+        <p class="contact-content">
+            我热切期待与志同道合的研究者合作。如果你对具身智能、机器人学习或相关领域感兴趣，欢迎与我联系！
+        </p>
+        <div class="contact-grid">
+            <a href="mailto:2236403741@qq.com" class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <div style="color: var(--green); font-weight: 600; margin-bottom: 5px;">Email</div>
+                    <span>2236403741@qq.com</span>
+                </div>
+            </a>
+            <a href="https://github.com/22364yiqun" target="_blank" class="contact-card">
+                <i class="fab fa-github"></i>
+                <div>
+                    <div style="color: var(--green); font-weight: 600; margin-bottom: 5px;">GitHub</div>
+                    <span>github.com/22364yiqun</span>
+                </div>
+            </a>
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <div style="color: var(--green); font-weight: 600; margin-bottom: 5px;">Location</div>
+                    <span>Wuhan, Hubei, China</span>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <footer>
     <p>&copy; 2026 Yiqun Wang | Designed & Built with passion</p>
 </footer>
 
-<script>
-    // 导航栏滚动效果
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
