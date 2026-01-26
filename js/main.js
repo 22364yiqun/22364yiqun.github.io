@@ -1,3 +1,8 @@
+// 页面加载时回到顶部
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
 // 平滑滚动
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
