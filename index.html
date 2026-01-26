@@ -111,66 +111,49 @@
     </div>
 </section>
 
-<section id="research">
-    <h2>科研项目</h2>
-    
-     <div class="exp-item">
-        <div class="item-title">
-            <span><strong>数字孪生驱动的轴承故障智能诊断研究</strong> <span class="tag">核心成员 | 高亮教授课题组</span></span>
-            <span>2024.09 - 2024.12</span>
-        </div>
-        <p class="description">
-            <b>项目背景：</b>针对工业场景中故障诊断模型计算复杂度高、难以部署至边缘设备的问题，研究一种轻量化、高精度的智能诊断方法。
-        </p>
-        <ul>
-            <li><b>模型设计与实现：</b>作为核心算法开发者之一，负责轻量化诊断模型的设计。提出并实现了一种 <b>CNN-ViT协同的双分支网络架构</b>：CNN分支用于提取局部振动特征，ViT分支通过自注意力机制捕获多轴信号间的全局依赖关系，实现了高效的特征融合。</li>
-            <li><b>关键技术：</b>为解决轻量化与精度的矛盾，设计了 <b>“多轴卷积嵌入”模块</b>，在ViT前端对多通道振动信号进行高效预处理，显著降低了Transformer的计算开销，使模型更适合边缘部署。</li>
-            <li><b>实验与验证：</b>使用CWRU,HUST等多个轴承数据集进行训练与测试。所提模型在参数量仅为经典ResNet-18的 <b>约40%</b> 的情况下，诊断准确率达到了 <b>99.2%</b>，在同等轻量级模型中具有显著优势。</li>
-            <li><b>项目产出：</b>基于本项研究工作，撰写学术论文《A Lightweight Method Based on Multi-axis Self-attention and Convolutional Embedding for Digital-twin Driven Fault Diagnosis》，已发表于<b>《Digital Twin》期刊（2025年7月）</b>；相关技术已申请国家发明专利一项（申请号：AJ2510808，实审中）</li>
-        </ul>
-    </div>
+  <section id="research">
+      <h2>科研项目</h2>
 
-    <div class="exp-item">
-    <div class="item-title">
-        <span><strong>面向真实世界的双臂机器人端侧智能操控系统</strong> <span class="tag">模型训练与数据采集负责人 | “挑战杯”全国一等奖 (AI+赛道)</span></span>
-        <span>2025.08 - 2025.11</span>
-    </div>
-    <p class="description">
-        <b>项目背景：</b>针对具身智能在“端侧部署”上的核心瓶颈，参与研发基于SEM框架的双臂机器人系统，并负责模型训练与多模态数据采集架构的搭建与优化。
-    </p>
-    <ul>
-        <li><b>多模态数据采集架构搭建：</b>为保障模型训练质量，设计了自动化数据采集系统。基于ROS2构建了高可靠的多传感器同步模块，实时对齐多台Intel RealSense D435i相机的RGB-D图像流与松灵Piper双臂机器人的14维关节状态。将原始数据高效封装为LMDB格式，构建了稳定、低延迟的数据供给底层，为后续模型训练奠定了坚实基础。</li>
-        <li><b>模型训练与深度优化：</b>参与了基于扩散策略的SEM模型的全流程训练工作。针对训练速度慢、易过拟合的难题，设计了三阶段渐进式预训练策略（ImageNet→通用操作→目标任务），并应用混合精度训练加速。通过精细调优链式学习率调度与AdamW优化器，模型成功收敛，整体训练效率提升约<strong>30%</strong>，有效提升了模型在叠放、抓取等复杂任务上的泛化性能。</li>
-        <li><b>项目成果：</b>所构建的数据架构与训练方案是项目智能核心的关键组成部分，支撑了后续模型的轻量化部署与实测，最终作品荣获<strong>“挑战杯”全国大学生课外学术科技作品竞赛国家级一等奖</strong>。</li>
-    </ul>
-</div>
-    
-    <div class="exp-item">
-        <div class="item-title">
-            <span>异构环境下的联邦学习与边缘算力分配 <span class="tag">金海老师团队</span></span>
-            <span>2025.01 - 至今</span>
-        </div>
-        <p class="description">
-            负责异构算力环境下的模型分配实验与对比验证，旨在提升边缘智能设备的协同通信效率。
-        </p>
-    </div>
+      <div class="exp-item">
+          <div class="item-title">
+              <span><strong>数字孪生驱动的轴承故障智能诊断研究</strong> <span class="tag">高亮教授课题组</span></span>
+              <span>2024.09 - 2024.12</span>
+          </div>
+          <p class="description">
+              设计了CNN-ViT双分支网络架构，有效融合轴承振动信号的局部与全局特征。相比ResNet-18参数量减少60%的情况下，诊断准确率达99.2%。已发表论文于《Digital Twin》期刊（2025年），申请发明专利1项。
+          </p>
+      </div>
 
-    <div class="exp-item">
-    <div class="item-title">
-        <span><strong>大型航空构件机器人智能测量与点云处理系统研发</strong> <span class="tag">| 李文龙教授实验室</span></span>
-        <span>2025年上半年</span>
-    </div>
-    <p class="description">
-        <b>项目背景：</b>针对飞机蒙皮等大型复杂曲面构件的人工检测效率低、精度难保证的行业痛点，主导研发了一套集成 “自动化轨迹规划-高精度点云拼接-三维可视化” 的全流程机器人测量系统原型，探索智能制造中的精密检测解决方案。
-    </p>
-    <ul>
-        <li><b>机器人自主测量轨迹规划算法：</b>针对复杂曲面覆盖测量问题，将蒙皮曲面进行参数化建模。基于曲面几何特征，设计了 “关键视点生成算法*，并负责实现了一种 **“基于任务优先级与运动学约束的路径优化算法”**。该算法在ABB RobotStudio中完成仿真验证，生成的轨迹在确保测量点全覆盖的前提下，将机械臂空程移动路径缩短了 <strong>约40%</strong>，显著提升了测量效率。</li>
-        <li><b>跨平台点云处理软件系统架构搭建：</b>作为软件负责人之一，实现了系统的跨平台软件架构。核心采用C++/Qt框架结合PCL、VTK库，开发了集成点云加载、可视化、配准与拼接功能的桌面应用程序。完成了 ROS与激光跟踪仪（API）的UDP通信模块，实现了测量位姿数据的实时同步，为高精度无标志点云拼接提供了数据基础。</li>
-        <li><b>系统集成与仿真验证：</b>将自主规划的轨迹、实时采集的位姿数据与点云处理算法集成至统一软件平台。利用RobotStudio进行了完整的测量过程运动学仿真，生成仿真动画，提前验证了方案的可行性与安全性，形成了“**算法设计-软件实现-仿真验证**”的完整闭环。</li>
-        <li><b>项目成果：</b>成功交付了一套可运行的机器人智能测量软件原型系统及详细设计报告。项目完整实践了从问题建模、算法开发、软件工程到系统集成的工程项目全流程。</li>
-    </ul>
-</div>
-</section>
+      <div class="exp-item">
+          <div class="item-title">
+              <span><strong>面向真实世界的双臂机器人端侧智能操控系统</strong> <span class="tag">挑战杯全国一等奖</span></span>
+              <span>2025.08 - 2025.11</span>
+          </div>
+          <p class="description">
+              基于ROS2搭建多传感器同步数据采集系统，采集RGB-D与14维关节状态；采用三阶段渐进式预训练策略优化扩散策略模型，训练效率提升30%，支撑项目获得挑战杯国家级一等奖。
+          </p>
+      </div>
+
+      <div class="exp-item">
+          <div class="item-title">
+              <span><strong>异构环境下的联邦学习与边缘算力分配</strong> <span class="tag">金海老师团队</span></span>
+              <span>2025.01 - 至今</span>
+          </div>
+          <p class="description">
+              负责异构算力环境下的模型分配实验与验证，探索提升边缘智能设备的协同通信效率。
+          </p>
+      </div>
+
+      <div class="exp-item">
+          <div class="item-title">
+              <span><strong>大型航空构件机器人智能测量与点云处理系统</strong> <span class="tag">李文龙教授实验室</span></span>
+              <span>2025年上半年</span>
+          </div>
+          <p class="description">
+              设计曲面参数化建模与路径优化算法，使机械臂空程移动路径缩短40%；基于C++/Qt开发跨平台点云处理系统，集成ROS与激光跟踪仪通信模块，完成系统集成与仿真验证。
+          </p>
+      </div>
+  </section>
 
 <section id="skills">
     <h2>专业技能</h2>
